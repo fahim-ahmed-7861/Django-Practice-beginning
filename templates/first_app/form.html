@@ -6,19 +6,49 @@
   </head>
   <body>
 
+  <!--
+    <h3>This form is created by html code</h3>
 
-    <h3>This is form</h3>
+   <form action="" method="post">
+          <label for="user_name">Full Name</label>
+          <input type="text" name="user_name" value="" required="">
+          <label for="user_email">User Email</label>
+          <input type="email" name="user_email" value="" required="">
+          <input type="submit" name="submit" value="Submit">
+        </form>
+  <hr>
 
-    <form action="" method="post">
+-->
+    <h3>{{heading_1}}  </h3>
 
-<label for="text_flield">Text Field<label/>
-        <input type="text" name="text_flield" value="">
+   <form action="" method='POST'>
 
-        <label/>
+     {{test_form.as_p}}
+
+     {% csrf_token %}
+
+     <input type='submit' name='submit' value='Submit'>
 
 
+     <form/>
 
-      <form/>
+     <hr>
+
+     {% if form_submited %}
+  <!--
+      <p>Name :{{user_name}}</p>
+
+      <p>Email : {{user_email}}</p>
+
+      <p>Date OF birth : {{user_dob}}</p>
+
+
+   -->
+
+      <p>Field : {{field}}</p>
+      {% endif %}
+
+
 
   </body>
 </html>
