@@ -1,15 +1,14 @@
 <!DOCTYPE html>
+{% extends "first_app/base.html" %}
 {% load static  %}
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="{% static 'css/mystyle.css'%}">
-    <title>Musician List</title>
-  </head>
-  <body>
-
+{% load my_filters %}
+{% block body_block %}
 
     <h1>{{text1}}  </h1>
+
+<h2>{{"ok"|custom_filter:"New Addition"}}</h2>
+
+    <a href="{% url 'first_app:form' %}">Add new</a>
 
     <table border="1">
 
@@ -24,7 +23,7 @@
 
        <tr>
 
-         <td>{{row.first_name}}</td>
+         <td>{{row.first_name | add:" Mr"}}</td>
           <td>{{row.last_name}}</td>
            <td>{{row.instrument}}</td>
 
@@ -38,5 +37,4 @@
       <img src="{% static 'images/fahimPic.jpg'%}">
 
 
-  </body>
-</html>
+{% endblock %}
